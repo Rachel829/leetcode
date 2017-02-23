@@ -37,34 +37,55 @@ func findComplement(_ num: Int) -> Int {
 }
 //print(findComplement(5));
 
-//
-//
-//func findWords(_ words: [String]) -> [String] {
-//  var firstArr=["q","w","e","r","t","y","u","i","o","p"];
-//  var secondArr=["a","s","d","f","g","h","j","k","l"];
-//  var thirdArr = ["z","x","c","v","b","n","m"];
-//    var printArr : [Array<String>] = [];
-//    
-//    for word in words {
-//        NSArray *selectRow =[String]();
-//        
-//        word = word.lowercased();
-//        
-//        for i in 0...word.characters.count{
-//           
-//            arr = [];
-//            if i = 0 {
-//              words
-//                
-//            }else{
-//            
-//            }
-//            
-//        
-//        }
-//    }
-//    
-//    
-//}
 
+
+func findWords(_ words: [String]) -> [String] {
+  let firstArr=["q","w","e","r","t","y","u","i","o","p"];
+  let secondArr=["a","s","d","f","g","h","j","k","l"];
+  let thirdArr = ["z","x","c","v","b","n","m"];
+    var printArr :[String] = [];
+    for word in words {
+        var selectRow = [String]();
+        var selectedStr = word;
+        
+        for i in word.characters{
+            
+            if selectRow.count == 0 {
+                
+                print(i)
+                if(firstArr.contains(i.description.lowercased())){
+                    selectRow = firstArr;
+                
+                }else if(secondArr.contains(i.description.lowercased())){
+                    
+                    selectRow = secondArr;
+                    
+                }else if (thirdArr.contains(i.description.lowercased())){
+                   
+                    selectRow = thirdArr;
+                }else{
+                    selectedStr = "";
+                    break;
+                }
+            }else{
+            
+                 if(!selectRow.contains(i.description.lowercased())){
+                    selectedStr = "";
+                    break;
+                    
+                }
+                
+            }
+        
+        }
+        
+        if selectedStr.characters.count > 0 {
+            printArr .append(selectedStr);
+        }
+    }
+    return printArr;
+    
+}
+
+print(findWords(["dfdfrv","cvb","wsdf","fhtrnn","eQR"]))
 
