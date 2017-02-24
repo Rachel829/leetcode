@@ -17,10 +17,51 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    NSLog(@"%@",[self getNextGreaterElementWith:@[@"2",@"4"] in:@[@"1",@"2",@"3",@"4"]]);
+    [self test412];
 }
 
 
+
+-(void)test412{
+
+    NSLog( @"%@",[self fizzBuzzWith:15]);
+
+}
+
+//412
+
+-(NSArray *)fizzBuzzWith:(NSInteger)integer{
+
+    NSMutableArray *printArr = [NSMutableArray arrayWithCapacity:0];
+    for (int i = 1; i <= integer; i++) {
+        if (i%15 == 0) {
+            [printArr addObject:@"FizzBuzz"];
+           
+        }else if (i%5 == 0) {
+            [printArr addObject:@"Buzz"];
+        }else if(i%3 == 0){
+            
+            [printArr addObject:@"Fizz"];
+
+        }else{
+                
+                [printArr addObject:@(i)];
+                
+        }
+        
+        
+    }
+    return printArr;
+    
+
+}
+
+
+-(void)test496{
+
+    NSLog(@"%@",[self getNextGreaterElementWith:@[@"2",@"4"] in:@[@"1",@"2",@"3",@"4"]]);
+
+}
 
 
 //496
@@ -131,6 +172,8 @@
     return printArr;
     
 }
+
+
 
 
 @end

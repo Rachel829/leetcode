@@ -132,5 +132,32 @@ func nextGreaterElement(_ findNums: [Int], _ nums: [Int]) -> [Int] {
 }
 
 
-print(nextGreaterElement([4,1,2], [1,3,4,2]));
-print(nextGreaterElement([2,4], [1,2,3,4]));
+//print(nextGreaterElement([4,1,2], [1,3,4,2]));
+//print(nextGreaterElement([2,4], [1,2,3,4]));
+
+
+
+//412
+
+func fizzBuzz(_ n: Int) -> [String] {
+    var printArr:[String] = [];
+    
+    for i in 1...n {
+        
+        if i%15 == 0 {
+            printArr .append("FizzBuzz");
+        }else if i%5 == 0{
+            printArr .append("Buzz");
+        }else if i%3 == 0{
+            printArr .append("Fizz");
+        }else{
+            printArr .append(i.description);
+        }
+    }
+
+    return printArr;
+}
+
+print(fizzBuzz(15))
+
+
