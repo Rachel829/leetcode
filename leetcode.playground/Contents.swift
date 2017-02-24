@@ -87,5 +87,50 @@ func findWords(_ words: [String]) -> [String] {
     
 }
 
-print(findWords(["dfdfrv","cvb","wsdf","fhtrnn","eQR"]))
+//print(findWords(["dfdfrv","cvb","wsdf","fhtrnn","eQR"]))
 
+
+
+
+// 496
+
+func nextGreaterElement(_ findNums: [Int], _ nums: [Int]) -> [Int] {
+    
+    var printArr:[Int] = [];
+    
+    for fnumElement in findNums {
+        
+        let index =  nums .index(of: fnumElement);
+        
+        if index == nums.count - 1 {
+            [printArr .append(-1)];
+        
+        }else{
+            var subNums = nums;
+            subNums .removeFirst(index!);
+            var nextGreaterElement = 0;
+            
+            for i in subNums {
+                
+                if fnumElement < i {
+                    nextGreaterElement = i;
+                    break;
+                }
+            }
+            
+            if nextGreaterElement > 0 {
+                printArr .append(nextGreaterElement);
+            }else{
+                printArr .append(-1);
+            }
+        
+        }
+    }
+    
+    return printArr;
+    
+}
+
+
+print(nextGreaterElement([4,1,2], [1,3,4,2]));
+print(nextGreaterElement([2,4], [1,2,3,4]));

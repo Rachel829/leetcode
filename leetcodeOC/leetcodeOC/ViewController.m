@@ -26,18 +26,6 @@
 //496
 -(NSArray *)getNextGreaterElementWith:(NSArray *) arr1  in:(NSArray *)arr2{
     
-//    NSComparator finderSort = ^(id string1,id string2){
-//        
-//        if ([string1 integerValue] > [string2 integerValue]) {
-//            return (NSComparisonResult)NSOrderedDescending;
-//        }else if ([string1 integerValue] < [string2 integerValue]){
-//            return (NSComparisonResult)NSOrderedAscending;
-//        }
-//        else
-//            return (NSComparisonResult)NSOrderedSame;
-//    };
-//   arr2 = [arr2 sortedArrayUsingComparator:finderSort];
-//
 
     NSMutableArray *printArr = [NSMutableArray arrayWithCapacity:0];
     
