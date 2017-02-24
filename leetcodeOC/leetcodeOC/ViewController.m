@@ -17,14 +17,80 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    NSArray *arr = @[@"retcff",@"dgfgg",@"cvbvcb",@"eteruiot",@"fvgb",@"qaqc",@"sdfdfg"];
-    
-   NSArray *answerArr = [self getOneRow:arr];
-    
-    NSLog(@"%@",answerArr);
+    NSLog(@"%@",[self getNextGreaterElementWith:@[@"2",@"4"] in:@[@"1",@"2",@"3",@"4"]]);
 }
 
 
+
+
+//496
+-(NSArray *)getNextGreaterElementWith:(NSArray *) arr1  in:(NSArray *)arr2{
+    
+//    NSComparator finderSort = ^(id string1,id string2){
+//        
+//        if ([string1 integerValue] > [string2 integerValue]) {
+//            return (NSComparisonResult)NSOrderedDescending;
+//        }else if ([string1 integerValue] < [string2 integerValue]){
+//            return (NSComparisonResult)NSOrderedAscending;
+//        }
+//        else
+//            return (NSComparisonResult)NSOrderedSame;
+//    };
+//   arr2 = [arr2 sortedArrayUsingComparator:finderSort];
+//
+
+    NSMutableArray *printArr = [NSMutableArray arrayWithCapacity:0];
+    
+    for (NSString *arrElement in arr1) {
+        
+        NSInteger index = [arr2 indexOfObject:arrElement];
+        
+        if (index == arr2.count - 1 ) {
+            
+            [printArr addObject:@"-1"];
+            
+        }else{
+        
+            
+            NSArray *subArr2 = [arr2 subarrayWithRange:NSMakeRange(index, arr2.count - index - 1)];
+            NSString *nextStr;
+            for (NSString *subStr in subArr2) {
+                
+                if ([arrElement integerValue] < [subStr integerValue]) {
+                    nextStr = subStr;
+                    break;
+
+                }
+            }
+            
+            if (!nextStr) {
+                nextStr = @"-1";
+            }
+            
+            [printArr addObject:nextStr];
+            
+
+
+        }
+      
+    }
+    
+    return printArr;
+
+}
+
+
+-(void)test500{
+    
+    NSArray *arr = @[@"retcff",@"dgfgg",@"cvbvcb",@"eteruiot",@"fvgb",@"qaqc",@"sdfdfg"];
+    NSArray *answerArr = [self getOneRow:arr];
+    NSLog(@"%@",answerArr);
+    
+    
+}
+
+
+//500
 -(NSArray *)getOneRow:(NSArray *)words{
 
     NSArray *firstRow = @[@"q",@"w",@"e",@"r",@"t",@"y",@"u",@"i",@"o",@"p"];
