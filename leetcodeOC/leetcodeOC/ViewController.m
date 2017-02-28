@@ -16,10 +16,36 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-//    [self test412];
     
-    NSLog(@"%u",~ (-5));
+
+}
+
+
+- (void)test344 {
+    
+    NSLog(@"%@",[self reverseString:@"intent"]);
+
+}
+
+
+
+//344
+-(NSString *)reverseString:(NSString *)str{
+    
+    NSUInteger i = 0;
+    NSUInteger j = str.length - 1;
+    unichar characters[str.length];
+    while (i < j) {
+        characters[j] = [str characterAtIndex:i];
+        characters[i] = [str characterAtIndex:j];
+        i ++;
+        j --;
+    }
+    if(i == j)
+        characters[i] = [str characterAtIndex:i];
+   
+    return [NSString stringWithCharacters:characters length:str.length];
+>>>>>>> 6f46ed39b23ff28d5ef23971fb5e8ae1d59aec22
 }
 
 

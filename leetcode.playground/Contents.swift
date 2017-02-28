@@ -158,6 +158,20 @@ func fizzBuzz(_ n: Int) -> [String] {
     return printArr;
 }
 
-print(fizzBuzz(15))
+//print(fizzBuzz(15))
+
+
+
+//344
+
+func reverseString(_ s: String) -> String {
+    
+   return String(s.characters.reversed());
+    
+    
+}
+
+reverseString("Hello");
+
 
 
